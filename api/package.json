@@ -1,0 +1,29 @@
+{
+  "name": "@moonsteelfab/api",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts --local --port 8787",
+    "deploy": "wrangler deploy",
+    "secret": "wrangler secret put ADMIN_BOOTSTRAP_PASSWORD",
+    "db:local:create": "wrangler d1 create moonsteelfab_local --local",
+    "db:local:migrate": "wrangler d1 migrations apply moonsteelfab_local --local",
+    "db:prod:create": "wrangler d1 create moonsteelfab_prod",
+    "db:prod:migrate": "wrangler d1 migrations apply moonsteelfab_prod --remote",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250129.0",
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.5.0"
+  }
+}
+

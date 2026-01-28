@@ -1,0 +1,18 @@
+name = "moonsteelfab-api"
+main = "src/index.ts"
+compatibility_date = "2026-01-27"
+
+[vars]
+# Set in Cloudflare via secrets (remote/prod):
+# - SESSION_SECRET
+# - ADMIN_BOOTSTRAP_PASSWORD
+
+[[d1_databases]]
+binding = "DB"
+database_name = "moonsteelfab_prod"
+database_id = "561c2ea4-e22e-4e12-b111-b2c7e7a220bc"
+migrations_dir = "../migrations"
+
+[dev]
+port = 8787
+
