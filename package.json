@@ -7,7 +7,7 @@
 	],
 	"scripts": {
 		"build": "npm run web:deploy",
-		"deploy": "npm run web:deploy && npx wrangler pages deploy web/.vercel/output/static",
+		"deploy": "npm run web:deploy",
 		"web:dev": "npm -w ./web run dev",
 		"web:build": "npm -w ./web run build",
 		"web:deploy": "npm -w ./web run deploy",
