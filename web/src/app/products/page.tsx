@@ -4,6 +4,7 @@ import { apiFetch } from "@/lib/api";
 import type { Product } from "@/lib/products";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export default async function ProductsPage() {
   const res = await apiFetch<{ products: Product[] }>("/products", { cache: "no-store" });
