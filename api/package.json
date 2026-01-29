@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "wrangler dev src/index.ts --local --port 8787",
-    "deploy": "wrangler deploy",
+    "worker-deploy": "wrangler deploy",
     "secret": "wrangler secret put ADMIN_BOOTSTRAP_PASSWORD",
     "db:local:create": "wrangler d1 create moonsteelfab_local --local",
     "db:local:migrate": "wrangler d1 migrations apply moonsteelfab_local --local",
@@ -26,4 +26,3 @@
     "typescript": "^5.5.0"
   }
 }
-

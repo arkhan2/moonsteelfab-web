@@ -6,13 +6,11 @@
 		"api"
 	],
 	"scripts": {
-		"build": "npm run web:deploy",
-		"deploy": "echo 'Build complete. Cloudflare Pages CI handles the deployment automatically.'",
+		"build": "npm -w ./web run build-pages",
 		"web:dev": "npm -w ./web run dev",
-		"web:build": "npm -w ./web run build",
-		"web:deploy": "npm -w ./web run deploy",
+		"web:build": "npm -w ./web run build-pages",
 		"api:dev": "npm -w ./api run dev",
-		"api:deploy": "npm -w ./api run deploy",
+		"api:deploy": "npm -w ./api run worker-deploy",
 		"api:secret": "npm -w ./api run secret",
 		"db:local:create": "npm -w ./api run db:local:create",
 		"db:local:migrate": "npm -w ./api run db:local:migrate",
