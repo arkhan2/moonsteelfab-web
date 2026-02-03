@@ -31,15 +31,18 @@ web/.vercel/output/static
 
 **✅ Deploy command:**
 ```
+(LEAVE EMPTY - Recommended)
+```
+
+**OR if deploy command is required:**
+```
 npx wrangler pages deploy web/.vercel/output/static --project-name=moonsteelfab-web
 ```
 
-**⚠️ CRITICAL:** The deploy command MUST be `wrangler pages deploy` (NOT `wrangler deploy`). 
-
-- ❌ `npx wrangler deploy` = for Workers (causes the error you're seeing)
-- ✅ `npx wrangler pages deploy` = for Pages (correct command)
-
-Make sure you update this in Cloudflare Dashboard → Pages → Settings → Builds & deployments → Deploy command
+**⚠️ IMPORTANT:** 
+- **Best option:** Leave deploy command **empty** - Cloudflare Pages auto-deploys after successful build
+- **If required:** Use `wrangler pages deploy` (NOT `wrangler deploy`)
+- **If you get API token errors:** Remove `CLOUDFLARE_API_TOKEN` env var or update token permissions (see `API_TOKEN_FIX.md`)
 
 ### 4. Environment Variables
 
