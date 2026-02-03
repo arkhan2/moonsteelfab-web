@@ -6,7 +6,7 @@
     "api"
   ],
 	"scripts": {
-		"build": "cd web && npm install && npm run build-pages",
+		"build": "cd web && node -e \"console.log('🔍 NEXT_PUBLIC_API_BASE_URL:', process.env.NEXT_PUBLIC_API_BASE_URL || 'NOT SET (will use fallback)')\" && npm install && npm run build-pages",
 		"web:dev": "npm -w ./web run dev",
 		"web:build": "npm -w ./web run build",
 		"web:build-pages": "npm -w ./web run build-pages",
