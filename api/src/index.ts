@@ -26,14 +26,7 @@ const app = new Hono<{ Bindings: Env }>();
 app.use(
   "*",
   cors({
-    origin: (origin) => {
-      // Allow localhost for development
-      if (!origin || origin.includes("localhost") || origin.includes("127.0.0.1")) return origin || true;
-      // Allow specific remote origins
-      if (origin === "http://localhost:3000" || origin === "http://192.168.100.7:3000") return origin;
-      // Default allow for development
-      return origin || true;
-    },
+    origin: (origin) => origin || "*",
     credentials: true,
     allowHeaders: ["Content-Type"],
     allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
@@ -79,7 +72,7 @@ app.post("/auth/login", async (c) => {
     cookieSerialize(SESSION_COOKIE, session.id, {
       httpOnly: true,
       secure: true,
-      sameSite: "None",
+      sameSite: "Lax",
       path: "/",
       maxAgeSeconds: 60 * 60 * 24 * 14
     })
@@ -96,7 +89,7 @@ app.post("/auth/logout", async (c) => {
     cookieSerialize(SESSION_COOKIE, "", {
       httpOnly: true,
       secure: true,
-      sameSite: "None",
+      sameSite: "Lax",
       path: "/",
       maxAgeSeconds: 0
     })

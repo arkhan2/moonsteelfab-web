@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build-pages": "npx @cloudflare/next-on-pages@1",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "build-pages": "npx @cloudflare/next-on-pages"
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "next": "^15.0.0",
@@ -28,3 +28,4 @@
     "typescript": "^5.5.0"
   }
 }
+

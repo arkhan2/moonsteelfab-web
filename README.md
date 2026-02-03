@@ -75,17 +75,36 @@ npm run api:secret -- ADMIN_BOOTSTRAP_PASSWORD
 npm run api:deploy
 ```
 
-### 4) Configure web env + deploy to Pages
+Note the Worker URL (e.g., `https://moonsteelfab-api.mynickar.workers.dev`)
 
-In Cloudflare Pages project settings for `web/`, set:
+### 4) Deploy Web to Cloudflare Pages
 
-- `NEXT_PUBLIC_API_BASE_URL` = your Worker URL (e.g. `https://moonsteelfab-api.<your-subdomain>.workers.dev`)
+**Recommended: GitHub Integration** (builds automatically on Cloudflare's servers)
 
-Then deploy:
+1. Push code to GitHub:
+   ```bash
+   git push origin main
+   ```
 
+2. In **Cloudflare Dashboard** → **Pages** → **Create a project**:
+   - Connect to Git → Select your repo
+   - **Build command**: `cd web && npm install && npm run build-pages`
+   - **Build output directory**: `web/.vercel/output/static`
+   - **Root directory**: `web`
+
+3. Set environment variable:
+   - `NEXT_PUBLIC_API_BASE_URL` = your Worker URL
+
+4. Cloudflare will auto-deploy on every push to `main`
+
+**Alternative: Manual CLI** (requires WSL/Linux):
 ```bash
-npm run web:deploy
+cd web
+npm run build-pages
+npx wrangler pages deploy .vercel/output/static --project-name=moonsteelfab-web
 ```
+
+See `DEPLOY.md` for detailed deployment instructions.
 
 ## Admin access
 

@@ -5,7 +5,6 @@ import { productImages, productSpecs } from "@/lib/products";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
-export const runtime = "edge";
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
