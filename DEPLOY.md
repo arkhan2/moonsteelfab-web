@@ -28,10 +28,10 @@ git push origin main
    - **Project name**: `moonsteelfab-web`
    - **Production branch**: `main`
    - **Framework preset**: `None` (custom)
-   - **Build command**: `npm run build` (or `cd web && npm install && npm run build-pages`)
+   - **Build command**: `npm run build`
    - **Build output directory**: `web/.vercel/output/static`
    - **Root directory**: (leave empty - use root of repo)
-   - **Deploy command**: (leave empty - Pages auto-deploys after build)
+   - **Deploy command**: ⚠️ **MUST BE EMPTY** - Delete any value here! Pages auto-deploys after build
 
 ### 3. Set Environment Variables
 
