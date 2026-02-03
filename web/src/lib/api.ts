@@ -9,6 +9,12 @@ export async function apiFetch<T>(
   init?: RequestInit
 ): Promise<ApiResponse<T>> {
   const url = `${env.apiBaseUrl}${path.startsWith("/") ? path : `/${path}`}`;
+  
+  // Debug log if using fallback (localhost)
+  if (typeof window !== "undefined" && env.apiBaseUrl === "http://127.0.0.1:8787") {
+    console.warn("⚠️ Using localhost fallback. API call to:", url);
+  }
+  
   const res = await fetch(url, {
     ...init,
     headers: {
