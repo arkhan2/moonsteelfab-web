@@ -31,7 +31,8 @@ git push origin main
    - **Build command**: `npm run build`
    - **Build output directory**: `web/.vercel/output/static`
    - **Root directory**: (leave empty - use root of repo)
-   - **Deploy command**: ⚠️ **MUST BE EMPTY** - Delete any value here! Pages auto-deploys after build
+   - **Deploy command**: `npx wrangler pages deploy web/.vercel/output/static --project-name=moonsteelfab-web`
+     - Use `wrangler pages deploy` (not `wrangler deploy`) if deploy command is required
 
 ### 3. Set Environment Variables
 

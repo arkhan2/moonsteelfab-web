@@ -29,12 +29,12 @@ web/.vercel/output/static
 (leave empty or set to `/`)
 ```
 
-**❌ Deploy command:**
+**✅ Deploy command:**
 ```
-DELETE THIS ENTIRELY - LEAVE IT EMPTY
+npx wrangler pages deploy web/.vercel/output/static --project-name=moonsteelfab-web
 ```
 
-**Why?** Cloudflare Pages automatically deploys the build output after a successful build. The deploy command field is for custom deployment scripts, but we don't need it - Pages handles deployment automatically.
+**Note:** If deploy command is required, use `wrangler pages deploy` (not `wrangler deploy`). This deploys the built static files to Cloudflare Pages.
 
 ### 4. Environment Variables
 
