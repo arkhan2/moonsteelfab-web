@@ -31,18 +31,17 @@ web/.vercel/output/static
 
 **✅ Deploy command:**
 ```
-(LEAVE EMPTY - Recommended)
+(LEAVE EMPTY - STRONGLY RECOMMENDED)
 ```
 
-**OR if deploy command is required:**
-```
-npx wrangler pages deploy web/.vercel/output/static --project-name=moonsteelfab-web
-```
+**Why empty?** Cloudflare Pages automatically deploys the build output after a successful build. No deploy command needed!
 
-**⚠️ IMPORTANT:** 
-- **Best option:** Leave deploy command **empty** - Cloudflare Pages auto-deploys after successful build
-- **If required:** Use `wrangler pages deploy` (NOT `wrangler deploy`)
-- **If you get API token errors:** Remove `CLOUDFLARE_API_TOKEN` env var or update token permissions (see `API_TOKEN_FIX.md`)
+**⚠️ If deploy command is absolutely required:**
+1. First, create API token with Pages:Edit permission (see `FIX_DEPLOY.md`)
+2. Then use: `npx wrangler pages deploy web/.vercel/output/static --project-name=moonsteelfab-web`
+3. Set `CLOUDFLARE_API_TOKEN` environment variable in Pages settings
+
+**But really:** Just leave it empty. Your build succeeds - Pages will deploy it automatically!
 
 ### 4. Environment Variables
 
