@@ -34,7 +34,12 @@ web/.vercel/output/static
 npx wrangler pages deploy web/.vercel/output/static --project-name=moonsteelfab-web
 ```
 
-**Note:** If deploy command is required, use `wrangler pages deploy` (not `wrangler deploy`). This deploys the built static files to Cloudflare Pages.
+**⚠️ CRITICAL:** The deploy command MUST be `wrangler pages deploy` (NOT `wrangler deploy`). 
+
+- ❌ `npx wrangler deploy` = for Workers (causes the error you're seeing)
+- ✅ `npx wrangler pages deploy` = for Pages (correct command)
+
+Make sure you update this in Cloudflare Dashboard → Pages → Settings → Builds & deployments → Deploy command
 
 ### 4. Environment Variables
 
